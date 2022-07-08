@@ -1,0 +1,35 @@
+name: Cron every 2 hours
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"
+
+  workflow_dispatch:
+    inputs:
+      token:
+        description: 'secret token'
+        required: true
+
+#concurrency: 
+#  group: ${{ github.workflow }}-${{ github.ref }}
+#  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+    - uses: actions/checkout@master
+    
+    - name: docker registry login
+      run: echo "${{  secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }}" | docker login ghcr.io --username hoangweb --password-stdin
+      
+    - name: Run cron
+      if: success()
+      run: |
+        docker run \
+        -e APP_NAME="${{ secrets.APP_NAME }}" \
+        -e APP_TOKEN="${{ secrets.APP_TOKEN }}" \
+        -e JOB_NAME="cron" \
+        -e JOB_ARG_1="" \
+        ghcr.io/hoangweb/qhreport:latest
