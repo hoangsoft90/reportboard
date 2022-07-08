@@ -32,4 +32,4 @@ jobs:
         -e APP_TOKEN="${{ secrets.APP_TOKEN }}" \
         -e JOB_NAME="cron" \
         -e JOB_ARG_1="" \
-        ghcr.io/hoangweb/qhreport:latest
+        ghcr.io/hoangweb/rpboard:latest
