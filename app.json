@@ -1,0 +1,15 @@
+{
+	"name": "heroku-reportboard-cron",
+	"description": "A cron job for rpboard",
+	"repository": "https://github.com/admicro/heroku-reportboard-cron",
+	"logo": "https://app.23webhost.com/images/logo.png",
+	"website": "http://152.67.115.183:3001",
+	"stack": "container",
+	"image": "ghcr.io/hoangweb/rpboard:latest",
+	"env": {
+	    "JOB_NAME": {
+	      "description": "",
+	      "value": "cron"
+	    }
+	}
+}
