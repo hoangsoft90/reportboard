@@ -1,4 +1,4 @@
-IMAGE_NAME = rpboard
+IMAGE_NAME = ghcr.io/hoangweb/rpboard_heroku:latest
 VERSION = latest
 FILE = Dockerfile
 

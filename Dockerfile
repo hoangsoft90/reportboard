@@ -1,1 +1,1 @@
-FROM ghcr.io/hoangweb/rpboard:latest
+FROM ghcr.io/hoangweb/rpboard_heroku:latest
